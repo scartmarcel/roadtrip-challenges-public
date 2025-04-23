@@ -93,6 +93,11 @@ export default function ChallengeApp() {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
           rel="stylesheet"
         />
+        <style>{`
+          * {
+            font-family: 'Inter', sans-serif;
+          }
+        `}</style>
       </Head>
       <h1 className="text-3xl font-bold mb-6">🎒 Roadtrip Challenge Picker</h1>
 
