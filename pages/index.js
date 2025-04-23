@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient";
 
@@ -86,12 +87,18 @@ export default function ChallengeApp() {
   }, {});
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gradient-to-br from-cyan-200 to-cyan-50">
+    <div className="flex flex-col items-center justify-center min-h-screen p-6 gap-6 bg-gradient-to-br from-cyan-400 to-cyan-100 font-sans text-center">
+      <Head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
       <h1 className="text-3xl font-bold mb-6">🎒 Roadtrip Challenge Picker</h1>
 
       <button
         onClick={() => setShowAll(!showAll)}
-        className="mb-4 border px-4 py-2 rounded bg-white shadow hover:bg-cyan-100"
+        className="w-full max-w-xs mb-2 px-4 py-2 rounded-xl shadow-md bg-white hover:bg-cyan-200 transition font-semibold"
       >
         {showAll ? "Challenge-Liste verbergen" : "Alle Challenges anzeigen"}
       </button>
@@ -99,20 +106,20 @@ export default function ChallengeApp() {
       {step === "idle" && (
         <button
           onClick={() => setStep("choosePlayer")}
-          className="mb-4 border px-4 py-2 rounded bg-white shadow hover:bg-cyan-100"
+          className="w-full max-w-xs mb-2 px-4 py-2 rounded-xl shadow-md bg-white hover:bg-cyan-200 transition font-semibold"
         >
           Challenge ziehen
         </button>
       )}
 
       {step === "choosePlayer" && (
-        <div className="flex gap-4 mb-4">
+        <div className="flex gap-4 mb-4 justify-center">
           <button
             onClick={() => {
               setSelectedPlayer("Paul");
               setStep("choosePoints");
             }}
-            className="border px-4 py-2 rounded bg-white shadow hover:bg-cyan-100"
+            className="w-full max-w-xs mb-2 px-4 py-2 rounded-xl shadow-md bg-white hover:bg-cyan-200 transition font-semibold"
           >
             Paul wählt
           </button>
@@ -121,7 +128,7 @@ export default function ChallengeApp() {
               setSelectedPlayer("Marcel");
               setStep("choosePoints");
             }}
-            className="border px-4 py-2 rounded bg-white shadow hover:bg-cyan-100"
+            className="w-full max-w-xs mb-2 px-4 py-2 rounded-xl shadow-md bg-white hover:bg-cyan-200 transition font-semibold"
           >
             Marcel wählt
           </button>
@@ -129,7 +136,7 @@ export default function ChallengeApp() {
       )}
 
       {step === "choosePoints" && (
-        <div className="flex gap-2 mb-4">
+        <div className="flex gap-2 mb-4 justify-center">
           {[1, 2, 3, 4, 5].map((p) => (
             <button
               key={p}
@@ -137,7 +144,7 @@ export default function ChallengeApp() {
                 setSelectedPoints(p);
                 setStep("enterCode");
               }}
-              className="border px-3 py-1 rounded bg-white shadow hover:bg-cyan-100"
+              className="w-full max-w-[4rem] px-3 py-1 rounded-xl shadow-md bg-white hover:bg-cyan-200 transition font-semibold"
             >
               {p} Punkte
             </button>
@@ -146,7 +153,7 @@ export default function ChallengeApp() {
       )}
 
       {step === "enterCode" && (
-        <div className="mb-4">
+        <div className="mb-4 flex justify-center">
           <input
             type="password"
             placeholder="Geheimcode eingeben"
@@ -172,7 +179,7 @@ export default function ChallengeApp() {
                 setStep("idle");
               }
             }}
-            className="border px-4 py-2 rounded bg-white shadow hover:bg-cyan-100"
+            className="w-full max-w-xs mb-2 px-4 py-2 rounded-xl shadow-md bg-white hover:bg-cyan-200 transition font-semibold"
           >
             Bestätigen
           </button>
@@ -180,7 +187,7 @@ export default function ChallengeApp() {
       )}
 
       {step === "result" && currentChallenge && (
-        <div className="max-w-md w-full bg-white shadow-lg p-6 text-center mb-4">
+        <div className="bg-white p-6 rounded-2xl shadow-xl w-full max-w-md text-center mb-4">
           <p className="text-xl font-semibold mb-2">{currentChallenge.text}</p>
           <p className="text-sm text-gray-500">Punkte: {currentChallenge.points}</p>
           <p className="text-xs text-gray-400">Zuständig: {currentChallenge.player}</p>
@@ -217,12 +224,12 @@ export default function ChallengeApp() {
         </div>
       )}
 
-      <button onClick={() => setShowForm(!showForm)} className="mb-6 border px-4 py-2 rounded bg-white shadow">
+      <button onClick={() => setShowForm(!showForm)} className="w-full max-w-xs mb-2 px-4 py-2 rounded-xl shadow-md bg-white hover:bg-cyan-200 transition font-semibold">
         {showForm ? "Challenge-Formular verbergen" : "Neue Challenge einreichen"}
       </button>
 
       {showForm && (
-        <div className="mt-4 w-full max-w-md bg-white p-4 rounded shadow">
+        <div className="bg-white p-6 rounded-2xl shadow-xl w-full max-w-md">
           <h2 className="text-lg font-semibold mb-4">Neue Challenge einreichen</h2>
 
           <label className="block mb-1">Challenge Text</label>
@@ -256,7 +263,7 @@ export default function ChallengeApp() {
       )}
 
       {showAll && (
-        <div className="mt-10 w-full max-w-2xl bg-white p-4 rounded shadow">
+        <div className="bg-white p-6 rounded-2xl shadow-xl w-full max-w-md">
           <h2 className="text-lg font-semibold mb-4">Alle Challenges</h2>
           {challenges.map((c, i) => (
             <div key={i} className="border-b py-2">
@@ -267,7 +274,7 @@ export default function ChallengeApp() {
               <p className="text-xs mb-1">
                 Status: {c.status === "done" ? "✅ Erledigt" : c.status === "failed" ? "❌ Fehlgeschlagen" : "⏳ Offen"}
               </p>
-              <div className="flex gap-2 mt-1">
+              <div className="flex gap-2 mt-1 justify-center">
                 <button onClick={() => updateChallengeStatus(c.id, "done")} className="text-green-600">✅</button>
                 <button onClick={() => updateChallengeStatus(c.id, "failed")} className="text-red-600">❌</button>
               </div>
@@ -276,7 +283,7 @@ export default function ChallengeApp() {
         </div>
       )}
 
-      <div className="mt-6 bg-white p-4 rounded shadow max-w-sm w-full text-center">
+      <div className="bg-white p-6 rounded-2xl shadow-xl w-full max-w-md mt-6">
         <h2 className="text-lg font-semibold mb-2">🏆 Leaderboard</h2>
         <p>Paul: {totalPoints["Paul"] || 0} Punkte</p>
         <p>Marcel: {totalPoints["Marcel"] || 0} Punkte</p>
