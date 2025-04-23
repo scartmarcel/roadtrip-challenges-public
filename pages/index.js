@@ -14,6 +14,8 @@ export default function ChallengeApp() {
   const [codeInput, setCodeInput] = useState("");
   const [currentChallenge, setCurrentChallenge] = useState(null);
 
+  const [showAll, setShowAll] = useState(false);
+
   useEffect(() => {
     fetchChallenges();
   }, []);
@@ -86,6 +88,13 @@ export default function ChallengeApp() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gradient-to-br from-cyan-200 to-cyan-50">
       <h1 className="text-3xl font-bold mb-6">🎒 Roadtrip Challenge Picker</h1>
+
+      <button
+        onClick={() => setShowAll(!showAll)}
+        className="mb-4 border px-4 py-2 rounded bg-white shadow hover:bg-cyan-100"
+      >
+        {showAll ? "Challenge-Liste verbergen" : "Alle Challenges anzeigen"}
+      </button>
 
       {step === "idle" && (
         <button
@@ -246,24 +255,26 @@ export default function ChallengeApp() {
         </div>
       )}
 
-      <div className="mt-10 w-full max-w-2xl bg-white p-4 rounded shadow">
-        <h2 className="text-lg font-semibold mb-4">Alle Challenges</h2>
-        {challenges.map((c, i) => (
-          <div key={i} className="border-b py-2">
-            <p className="font-medium">{c.text}</p>
-            <p className="text-xs text-gray-600">
-              Punkte: {c.points} | Von: {c.author} | Am: {new Date(c.date).toLocaleString()} | Spieler: {c.player || "-"}
-            </p>
-            <p className="text-xs mb-1">
-              Status: {c.status === "done" ? "✅ Erledigt" : c.status === "failed" ? "❌ Fehlgeschlagen" : "⏳ Offen"}
-            </p>
-            <div className="flex gap-2 mt-1">
-              <button onClick={() => updateChallengeStatus(c.id, "done")} className="text-green-600">✅</button>
-              <button onClick={() => updateChallengeStatus(c.id, "failed")} className="text-red-600">❌</button>
+      {showAll && (
+        <div className="mt-10 w-full max-w-2xl bg-white p-4 rounded shadow">
+          <h2 className="text-lg font-semibold mb-4">Alle Challenges</h2>
+          {challenges.map((c, i) => (
+            <div key={i} className="border-b py-2">
+              <p className="font-medium">{c.text}</p>
+              <p className="text-xs text-gray-600">
+                Punkte: {c.points} | Von: {c.author} | Am: {new Date(c.date).toLocaleString()} | Spieler: {c.player || "-"}
+              </p>
+              <p className="text-xs mb-1">
+                Status: {c.status === "done" ? "✅ Erledigt" : c.status === "failed" ? "❌ Fehlgeschlagen" : "⏳ Offen"}
+              </p>
+              <div className="flex gap-2 mt-1">
+                <button onClick={() => updateChallengeStatus(c.id, "done")} className="text-green-600">✅</button>
+                <button onClick={() => updateChallengeStatus(c.id, "failed")} className="text-red-600">❌</button>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
 
       <div className="mt-6 bg-white p-4 rounded shadow max-w-sm w-full text-center">
         <h2 className="text-lg font-semibold mb-2">🏆 Leaderboard</h2>
