@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom right, #a0e9fd, #e0f7fa);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+  text-align: center;
+  color: #0d47a1;
+}
+
+.button {
+  display: inline-block;
+  background-color: #0288d1;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  margin: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0277bd;
+}
+
+.small-button {
+  padding: 0.3rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+.success-button {
+  background-color: #43a047;
+}
+
+.failure-button {
+  background-color: #e53935;
+}
+
+.input, .textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.challenge-card {
+  background-color: #f1f8ff;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border-radius: 10px;
+}
+
+.leaderboard {
+  margin-top: 2rem;
+  text-align: center;
+}
