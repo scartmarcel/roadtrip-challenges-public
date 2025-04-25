@@ -9,8 +9,33 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.4",
-    "next": "^14.0.0",
+    "@tailwindcss/vite": "^4.1.4",
+    "next": "^15.3.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
-  }
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.4",
+    "@types/react": "19.1.2",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.4",
+    "typescript": "5.8.3"
+  },
+  "main": "next.config.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scartmarcel/roadtrip-challenges.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scartmarcel/roadtrip-challenges/issues"
+  },
+  "homepage": "https://github.com/scartmarcel/roadtrip-challenges#readme",
+  "description": ""
 }
