@@ -97,12 +97,12 @@ export default function ChallengeApp() {
 
       <button
         onClick={() => setShowAll(!showAll)}
-        className="w-full max-w-xs mb-2 px-4 py-2 rounded-xl shadow-md bg-white hover:bg-cyan-200 transition font-semibold"
+        className="w-full max-w-xs mb-0.25 px-4 py-2 rounded-xl shadow-md bg-white hover:bg-cyan-200 transition font-semibold"
       >
         {showAll ? "Challenge-Liste verbergen" : "Alle Challenges anzeigen"}
       </button>
 
-      <button onClick={() => setShowForm(!showForm)} className="w-full max-w-xs mb-2 px-4 py-2 rounded-xl shadow-md bg-white hover:bg-cyan-200 transition font-semibold">
+      <button onClick={() => setShowForm(!showForm)} className="w-full max-w-xs mb-0.25 px-4 py-2 rounded-xl shadow-md bg-white hover:bg-cyan-200 transition font-semibold">
         {showForm ? "Challenge-Formular verbergen" : "Neue Challenge einreichen"}
       </button>
 
