@@ -147,7 +147,7 @@ export default function ChallengeApp() {
             <div key={i} className="border-b py-2">
               <p className="font-medium">{c.text}</p>
               <p className="text-xs text-gray-600">
-                Punkte: {c.points} | Von: {c.author} | Am: {new Date(c.date).toLocaleString()} | Spieler: {c.player || "-"}
+                Punkte: {c.points} | Am: {new Date(c.date).toLocaleString()} | Spieler: {c.player || "-"}
               </p>
               <p className="text-xs mb-1">
                 Status: {c.status === "done" ? "✅ Erledigt" : c.status === "failed" ? "❌ Fehlgeschlagen" : "⏳ Offen"}
