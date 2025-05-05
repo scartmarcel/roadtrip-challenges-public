@@ -94,6 +94,9 @@ export default function ChallengeApp() {
         `}</style>
       </Head>
       <h1 className="text-3xl font-bold mb-6">🎒 Roadtrip Challenge Picker</h1>
+      <p className="text-base text-white max-w-md -mt-4 mb-4">
+  Paul und Marcel werden während der Fahrt immer wieder Challenges ziehen. Wer am Ende die meisten Punkte sammelt, gewinnt – schaut ins Leaderboard! 🏁
+</p>
 
       <button
         onClick={() => setShowAll(!showAll)}
@@ -152,10 +155,6 @@ export default function ChallengeApp() {
               <p className="text-xs mb-1">
                 Status: {c.status === "done" ? "✅ Erledigt" : c.status === "failed" ? "❌ Fehlgeschlagen" : "⏳ Offen"}
               </p>
-              <div className="flex gap-2 mt-1 justify-center">
-                <button onClick={() => updateChallengeStatus(c.id, "done")} className="text-green-600">✅</button>
-                <button onClick={() => updateChallengeStatus(c.id, "failed")} className="text-red-600">❌</button>
-              </div>
             </div>
           ))}
         </div>
