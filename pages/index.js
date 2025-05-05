@@ -95,7 +95,7 @@ export default function ChallengeApp() {
       </Head>
       <h1 className="text-3xl font-bold mb-6">🎒 Roadtrip Challenge Picker</h1>
       <p className="text-base text-white max-w-md -mt-4 mb-4">
-  Paul und Marcel werden während der Fahrt immer wieder Challenges ziehen. Wer am Ende die meisten Punkte sammelt, gewinnt – schaut ins Leaderboard! 🏁
+  Paul und Marcel werden während der Fahrt immer wieder Challenges ziehen. Die Challenges sind im vorhinein nicht bekannt und werden random gezogen. Wer am Ende die meisten Punkte sammelt, gewinnt – schaut ins Leaderboard! 🏁
 </p>
 
       <button
